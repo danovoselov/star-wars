@@ -11,16 +11,14 @@
     <nav id="top-menu">
         <ul>
             <li v-for="item in topMenu" :class="{ selected: item.selected }"
-                :data-code="item.code" @click="changeMenu">{{ item.text }}</li>
+                :data-code="item.code" @click="changeTopMenu">{{ item.text }}</li>
         </ul>
     </nav>
     <section id="objects">
         <nav id="left-menu">
             <ul>
-                <li class="selected">Luke Skywalker</li>
-                <li>R2-D2</li>
-                <li>Leia Organa</li>
-                <li>R5-D4</li>
+                <li v-for="(item, index) in leftMenu" :class="{ selected: item.selected }"
+                    :data-id="item.id" @click="changeLeftMenu($event, index)">{{ item.name }}</li>
             </ul>
         </nav>
         <div id="picture">
@@ -29,13 +27,47 @@
             >
         </div>
         <div id="description">
-            <p><span>Name:</span> <b>Luke Skywalker</b></p>
-            <p><span>Hair Color:</span> <b>blond</b></p>
-            <p><span>Gender:</span> <b>male</b></p>
+            <template v-if="object === 'people'">
+                <p><span>Name:</span> <b>{{ people.name }}</b></p>
+                <p><span>Height:</span> <b>{{ people.height }}</b></p>
+                <p><span>Mass:</span> <b>{{ people.mass }}</b></p>
+                <p><span>Hair color:</span> <b>{{ people.hair_color }}</b></p>
+                <p><span>Skin color:</span> <b>{{ people.skin_color }}</b></p>
+                <p><span>Eye color:</span> <b>{{ people.eye_color }}</b></p>
+                <p><span>Gender:</span> <b>{{ people.gender }}</b></p>
+            </template>
+            <template v-else-if="object === 'planets'">
+                <p><span>Name:</span> <b>{{ planets.name }}</b></p>
+                <p><span>Rotation period:</span> <b>{{ planets.rotation_period }}</b></p>
+                <p><span>Orbital period:</span> <b>{{ planets.orbital_period }}</b></p>
+                <p><span>Diameter:</span> <b>{{ planets.diameter }}</b></p>
+                <p><span>Climate:</span> <b>{{ planets.climate }}</b></p>
+                <p><span>Gravity:</span> <b>{{ planets.gravity }}</b></p>
+                <p><span>Terrain:</span> <b>{{ planets.terrain }}</b></p>
+                <p><span>Surface water:</span> <b>{{ planets.surface_water }}</b></p>
+                <p><span>Population:</span> <b>{{ planets.population }}</b></p>
+            </template>
+            <template v-else="object === 'starships'">
+                <p><span>Name:</span> <b>{{ starships.name }}</b></p>
+                <p><span>Model:</span> <b>{{ starships.model }}</b></p>
+                <p><span>Manufacturer:</span> <b>{{ starships.manufacturer }}</b></p>
+                <p><span>Cost in credits:</span> <b>{{ starships.cost_in_credits }}</b></p>
+                <p><span>Length:</span> <b>{{ starships.length }}</b></p>
+                <p><span>Length:</span> <b>{{ starships.length }}</b></p>
+                <p><span>Max atmosphering speed:</span> <b>{{ starships.max_atmosphering_speed }}</b></p>
+                <p><span>Crew:</span> <b>{{ starships.crew }}</b></p>
+                <p><span>Passengers:</span> <b>{{ starships.passengers }}</b></p>
+                <p><span>Cargo capacity:</span> <b>{{ starships.cargo_capacity }}</b></p>
+                <p><span>Consumables:</span> <b>{{ starships.consumables }}</b></p>
+                <p><span>Hyperdrive rating:</span> <b>{{ starships.hyperdrive_rating }}</b></p>
+                <p><span>MGLT:</span> <b>{{ starships.MGLT }}</b></p>
+                <p><span>Starship class:</span> <b>{{ starships.starship_class }}</b></p>
+            </template>
         </div>
     </section>
 </article>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/script.js"></script>
 </body>
 </html>
