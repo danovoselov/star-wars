@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'STJEDISE';
+    src: url('/fonts/STJEDISE.eot');
+    src: url('/fonts/STJEDISE.eot') format('embedded-opentype'),
+    url('/fonts/STJEDISE.woff2') format('woff2'),
+    url('/fonts/STJEDISE.woff') format('woff'),
+    url('/fonts/STJEDISE.ttf') format('truetype'),
+    url('/fonts/STJEDISE.svg#STJEDISE') format('svg');
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    padding: 80px 0 0 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: STJEDISE, Arial, sans-serif;
+    text-align: center;
+    font-size: 58px;
+    margin: 0 0 50px;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#wrapper #top-menu {
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+#wrapper #top-menu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+#top-menu ul li {
+    background: yellow;
+    color: #000;
+    padding: 15px 90px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 100ms;
+}
+
+#top-menu ul li:hover {
+    background: yellow;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#top-menu ul li.selected {
+    background: orangered;
+}
+
+#wrapper #objects {
+    display: flex;
+    align-items: flex-start;
+    width: 90%;
+}
+
+#wrapper #objects #left-menu {
+    margin: 0 45px 0 15px;
+}
+
+#objects #left-menu ul {
+    list-style-type: none;
+    margin-top: 0;
+}
+
+#left-menu ul li {
+    padding: 20px 110px 20px 20px;
+}
+
+#left-menu ul li:hover {
+    background: #666;
+    cursor: pointer;
+}
+
+#left-menu ul li.selected {
+    background: #333;
+}
+
+#wrapper #objects #picture {
+    margin-right: 40px;
+}
+
+#objects #picture img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+}
+
+#objects #description p:first-of-type {
+    margin-top: 0;
+}
+
+#objects #description p {
+    margin: 15px 0;
+}
+
+#objects #description span {
+    opacity: .8;
+}
+
