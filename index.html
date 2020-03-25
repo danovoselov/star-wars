@@ -10,9 +10,8 @@
 <article id="wrapper">
     <nav id="top-menu">
         <ul>
-            <li class="selected">Person</li>
-            <li>Planet</li>
-            <li>Starship</li>
+            <li v-for="item in topMenu" :class="{ selected: item.selected }"
+                :data-code="item.code" @click="changeMenu">{{ item.text }}</li>
         </ul>
     </nav>
     <section id="objects">
@@ -36,5 +35,7 @@
         </div>
     </section>
 </article>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
